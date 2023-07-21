@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import PropTypes from "prop-types";
 
-export default class WeatherIcon extends Component {
-  static propTypes = { iconName: PropTypes.string.isRequired };
+export default function WeatherIcon(props) {
+  staticpropTypes = { iconName: PropTypes.string.isRequired };
 
   iconMatching = {
     "01d": "CLEAR_DAY",
@@ -26,10 +26,10 @@ export default class WeatherIcon extends Component {
     "50n": "FOG",
   };
 
-  render() {
+  {
     return (
       <ReactAnimatedWeather
-        icon={this.iconMatching[this.props.iconName]}
+        icon={iconMatching[props.iconName]}
         color="#000"
         size={38}
         animate={true}

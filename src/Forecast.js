@@ -5,17 +5,17 @@ import DateUtil from "./DateUtil";
 import "./Forecast.css";
 import WeatherIcon from "./WeatherIcon";
 
-export default class Forecast extends Component {
+export default function WeatherForecast(props) {
   state = {
-    city: this.props.city,
+    city: props.city,
   };
   componentWillMount() {
-    this.refresh();
+    refresh();
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ city: nextProps.city }, () => {
-      this.refresh();
+    setState({ city: nextProps.city }, () => {
+      refresh();
     });
   }
 
@@ -39,11 +39,10 @@ export default class Forecast extends Component {
       this.setState({ forecast: dailyForecast });
     });
   };
-  render() {
-    if (this.state.forecast) {
+ if (loaded) { 
       return (
-        <div className="row">
-          {this.state.forecast.map((weather, index) => {
+        <div className="Forecast">
+          {state.forecast.map((weather, index) => {
             return (
               <div className="col-sm-2" key={index}>
                 <div className="forecast-day">{weather.day}</div>
@@ -62,4 +61,4 @@ export default class Forecast extends Component {
       return <div />;
     }
   }
-}
+
